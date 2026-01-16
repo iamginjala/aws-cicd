@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+
 # Stop the running container (if any)
 ContainerId=$(sudo docker ps -q)
 echo "Container ID: $ContainerId"
