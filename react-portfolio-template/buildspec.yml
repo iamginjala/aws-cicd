@@ -17,10 +17,8 @@ phases:
   build:
    commands:
     - echo "current directory is $(pwd)"
-    - cd react-portfolio-template
-    - echo "current directory is $(pwd)"
     - npm run build
 artifacts:
   files:
     - '**/*'
-  base-directory: react-portfolio-template/build
+  base-directory: build
