@@ -4,11 +4,13 @@ phases:
    runtime-versions:
     nodejs: 18
    commands:
+    - cd react-portfolio-template
     - npm ci
   build:
    commands:
+    - cd react-portfolio-template
     - npm run build
 artifacts:
   files:
     - '**/*'
-  base-directory: build
+  base-directory: react-portfolio-template/build
