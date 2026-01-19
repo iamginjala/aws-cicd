@@ -1,14 +1,24 @@
 version: 0.2
 phases:
+  pre_build:
+   commands:
+    - echo " Listing repos contents"
+    - ls -la
+    - echo "current directory is $(pwd)"
+
   install:
    runtime-versions:
     nodejs: 18
    commands:
+    - echo "current directory is $(pwd)"
     - cd react-portfolio-template
+    - echo "current directory is $(pwd)"
     - npm ci
   build:
    commands:
+    - echo "current directory is $(pwd)"
     - cd react-portfolio-template
+    - echo "current directory is $(pwd)"
     - npm run build
 artifacts:
   files:
