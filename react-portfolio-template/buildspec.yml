@@ -18,7 +18,13 @@ phases:
    commands:
     - echo "current directory is $(pwd)"
     - npm run build
+    - echo "=== Listing all directories after build ==="
+    - ls -la
+    - echo "=== Checking if build folder exists ==="
+    - ls -la build || echo "No build folder found"
+    - echo "=== Checking if dist folder exists ==="
+    - ls -la dist || echo "No dist folder found"
 artifacts:
   files:
     - '**/*'
-  base-directory: build
+  base-directory: react-portfolio-template/build
