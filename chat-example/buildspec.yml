@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+  parameter-store:
+   DOCKER_USERNAME: docker_username 
+   DOCKER_PASSWORD: docker_password
+   DOCKER_URL: docker_url 
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18 
+    commands:
+      - echo "current directory is $(pwd)"
+      - cd chat-example   
+      - echo "current directory is $(pwd)"
+      - npm ci
+  pre_build:
+    commands:
+      - echo " Listing repos contents"
+      - ls -la
+      - echo "current directory is $(pwd)"
+  build:
+   commands:
+    - echo "Building Docker image..."
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin "$DOCKER_URL"
+    - docker build -t "$DOCKER_USERNAME/nodeapp:latest" .
+    - docker push "$DOCKER_USERNAME/nodeapp:latest"
