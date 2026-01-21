@@ -27,3 +27,7 @@ phases:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin "$DOCKER_URL"
     - docker build -t "$DOCKER_USERNAME/nodeapp:latest" .
     - docker push "$DOCKER_USERNAME/nodeapp:latest"
+artifacts:
+  files:
+    - appspec.yml
+    - scripts/**/*
